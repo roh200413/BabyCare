@@ -23,6 +23,7 @@ uvicorn app.main:app --reload
 - `POST /api/v1/devices/register`
 - `POST /api/v1/devices/{device_id}/readings`
 - `GET /api/v1/devices/{device_id}/status`
+- `GET /api/rooms/{room_code}?playerId={player_id}` (호환 스캐폴드)
 
 
 ## IoT 확장 방향
@@ -38,3 +39,16 @@ uvicorn app.main:app --reload
 - Input/Output Schema: `app/schemas/`
 - Domain/Application Module: `app/modules/`
 - 설계 문서: [`docs/ddd.md`](docs/ddd.md)
+
+
+## 트러블슈팅
+
+- `email-validator is not installed` 오류가 나면 의존성이 일부 누락된 상태입니다.
+- 아래 명령으로 백엔드 의존성을 다시 설치하세요.
+
+```bash
+cd backend
+pip install -e .[dev]
+# 또는 최소 패치
+pip install email-validator
+```

@@ -4,3 +4,5 @@ __pycache__/
 .pytest_cache/
 .venv/
 backend/.venv/
+node_modules/
+web/node_modules/
