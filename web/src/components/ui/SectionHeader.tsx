@@ -1,7 +1,9 @@
+import type { ReactNode } from 'react'
+
 type SectionHeaderProps = {
   eyebrow: string
   title: string
-  action?: React.ReactNode
+  action?: ReactNode
 }
 
 export function SectionHeader({ eyebrow, title, action }: SectionHeaderProps) {

@@ -1,16 +1,39 @@
+import { useState } from 'react'
+
 import { getFamilyMembers } from '../api/family'
 import { SectionHeader } from '../components/ui/SectionHeader'
 
 const invitees = getFamilyMembers()
 
+function makeInviteLink() {
+  const token = Math.random().toString(36).slice(2, 8).toUpperCase()
+  return `https://babycare.app/invite/${token}`
+}
+
 export function FamilySharePage() {
+  const [inviteLink, setInviteLink] = useState('')
+
+  const createInviteLink = async () => {
+    const nextLink = makeInviteLink()
+    setInviteLink(nextLink)
+
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(nextLink)
+    }
+  }
+
   return (
-    <section className="content-section">
+    <section className="content-section" id="family-share">
       <SectionHeader
         eyebrow="Family Share"
         title="가족 공유 관리"
-        action={<button className="primary-button">초대 링크 생성</button>}
+        action={
+          <button className="primary-button" onClick={createInviteLink}>
+            초대 링크 생성
+          </button>
+        }
       />
+      {inviteLink ? <p className="section-meta">생성된 링크(클립보드 복사): {inviteLink}</p> : null}
       <div className="two-column-grid">
         <article className="panel-card">
           <h3>공유 권한</h3>

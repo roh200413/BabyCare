@@ -59,8 +59,18 @@ button {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.nav-button {
+  border: none;
+  background: transparent;
   color: #334155;
   font-weight: 500;
+  padding: 0;
+}
+
+.nav-button:hover {
+  color: #4338ca;
 }
 
 .page-content {
@@ -150,6 +160,12 @@ button {
   align-items: center;
   gap: 16px;
   margin-bottom: 20px;
+}
+
+.section-meta {
+  margin: -4px 0 18px;
+  color: #64748b;
+  font-size: 0.92rem;
 }
 
 .photo-card {

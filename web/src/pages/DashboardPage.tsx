@@ -5,7 +5,7 @@ const widgets = getDashboardWidgets()
 
 export function DashboardPage() {
   return (
-    <section className="content-section">
+    <section className="content-section" id="dashboard">
       <SectionHeader eyebrow="Dashboard" title="오늘 현황" />
       <div className="two-column-grid">
         {widgets.map((widget) => (

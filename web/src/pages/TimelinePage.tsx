@@ -5,7 +5,7 @@ const timeline = getTimelineEntries()
 
 export function TimelinePage() {
   return (
-    <section className="content-section">
+    <section className="content-section" id="timeline">
       <SectionHeader eyebrow="Timeline" title="성장 타임라인" />
       <div className="timeline-list">
         {timeline.map((entry) => (
